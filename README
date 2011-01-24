@@ -1,0 +1,5 @@
+SmackTweet
+
+An example mobile HTML5 web application based off of the "Mobile Smackdown" session put on at the 2011 CodeMash conference.
+
+The application is a very simplified Twitter client (storing twitter handles and using the twitter web api for viewing tweets) intended to be written in ~15 minutes once for Android, iOS, and Windows Phone 7.  This version will be written using purely web technologies (HTML5, JavaScript, CSS) and is meant to be "installed" onto a mobile device from static web pages.
