@@ -1,5 +1,12 @@
 CACHE MANIFEST
-# version 1
+# version 4
+
+CACHE:
 /style.css
 /logo.png
 /favicon.ico
+/script.js
+/jquery.js
+
+NETWORK:
+*
