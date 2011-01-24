@@ -1,12 +1,12 @@
 CACHE MANIFEST
-# version 3
+# version 4
 
 CACHE:
-style.css
-logo.png
-favicon.ico
-script.js
-jquery.js
+/SmackTweet/style.css
+/SmackTweet/logo.png
+/SmackTweet/favicon.ico
+/SmackTweet/script.js
+/SmackTweet/jquery.js
 
 NETWORK:
 *
