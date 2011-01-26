@@ -38,7 +38,13 @@ $('#tweets').live('pageshow',function(event, ui){
 				rpp: 10
 			},
 			success: function(data) {
+				$('#tweet-handle').html(CURRENT_HANDLE)
+				
 				var tweetList = $('#tweets-list')
+				
+				tweetList.html(' ')
+				
+				tweetList.append('<li data-role="list-divider">' + CURRENT_HANDLE + '\'s Tweets</li>')
 				
 				for(var i = 0; i < data.results.length; i++) {
 					var result = data.results[i]
@@ -62,7 +68,5 @@ $('#tweets').live('pageshow',function(event, ui){
 })
 
 $('#tweets').live('pagehide', function(event, ui) {
-	var twetList = $('#tweets-list')
-	tweetList.html('<li data-role="list-divider">Tweets</li>')
-	tweetList.listview('refresh')
+	$('#tweets-list').html(' ').listview('refresh')
 })
