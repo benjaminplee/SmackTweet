@@ -1,0 +1,15 @@
+CACHE MANIFEST
+# version 5
+
+CACHE:
+style.css
+logo.png
+favicon.ico
+script.js
+jquery.js
+
+NETWORK:
+*
+
+FALLBACK:
+online.json offline.json
