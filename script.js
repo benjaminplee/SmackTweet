@@ -16,9 +16,6 @@ $(function() {
 	})
 
 	$('.showLatestTweet').click(function() {
-		
-		alert(online)
-		
 		if(online) {	
 			var handle = $(this).html()
 		
