@@ -70,3 +70,11 @@ $('#tweets').live('pageshow',function(event, ui){
 $('#tweets').live('pagehide', function(event, ui) {
 	$('#tweets-list').html(' ').listview('refresh')
 })
+
+$('#addIt').live('click', function(event, ui) {
+	var handle = $('#newHandle').val()
+	var peepsList = $('#peeps-list')
+	peepsList.append('<li><a href="#tweets">' + handle + '</a></li>')
+	peepsList.listview('refresh')
+	return true;
+})
