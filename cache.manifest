@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# version 1
+# version 5
 
 CACHE:
 style.css
@@ -10,3 +10,6 @@ jquery.js
 
 NETWORK:
 *
+
+FALLBACK:
+online.json offline.json
