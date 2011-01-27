@@ -1,17 +1,15 @@
 $(function() {
 	// THE "RIGHT" WAY TO DO IT
-	// ONLINE = window.navigator.onLine
+	ONLINE = window.navigator.onLine
 
 	// HACK TO MAKE THINGS WORK EVEN IF BROWSER REPORTS ONLINE (e.g. chrome)
-	ONLINE = false;
-	
 	$.ajax({
 		url: 'online.json',
 		cache: false,
 		dataType: 'jsonp',
 		jsonpCallback: 'onlineDetection',
 		success: function(data) {
-			ONLINE = data.online
+			ONLINE = ONLINE && data.online
 		}
 	})
 
@@ -62,7 +60,7 @@ $('#tweets').live('pageshow',function(event, ui){
 		})
 	}
 	else {
-		$('#tweets-list').append('<li>OFFLINE ... can\'t get tweets right now</li>')
+		$('#tweets-list').append('<li>OFFLINE ... can\'t get tweets right now. Try again later.</li>')
 		$.mobile.pageLoading(true)
 	}
 })
