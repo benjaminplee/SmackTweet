@@ -74,7 +74,14 @@ $('#tweets').live('pagehide', function(event, ui) {
 $('#addIt').live('click', function(event, ui) {
 	var handle = $('#newHandle').val()
 	var peepsList = $('#peeps-list')
-	peepsList.append('<li><a href="#tweets">' + handle + '</a></li>')
+	peepsList.append('<li id="' + handle + '"><a href="#tweets">' + handle + '</a></li>')
 	peepsList.listview('refresh')
 	return true;
+})
+
+$('#removeHandle').live('click', function() {
+	$('li#' + CURRENT_HANDLE).remove()
+	$('#peeps-list').listview('refresh')
+	
+	return true
 })
