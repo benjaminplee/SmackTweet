@@ -2,8 +2,6 @@ CACHE MANIFEST
 # tick
 
 CACHE:
-style.css
-logo.png
 favicon.ico
 script.js
 jquery.js
