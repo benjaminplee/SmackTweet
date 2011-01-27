@@ -1,4 +1,9 @@
 $(function() {
+	checkIfOnline()
+	loadPeeps()
+})
+
+function checkIfOnline() {
 	// THE "RIGHT" WAY TO DO IT
 	ONLINE = window.navigator.onLine
 
@@ -12,8 +17,39 @@ $(function() {
 			ONLINE = ONLINE && data.online
 		}
 	})
+}
 
-})
+function getPeepsFromStorage() {
+	return JSON.parse(window.localStorage.getItem('peeps')) || []
+}
+
+function storePeepsToStorage(peeps) {
+	localStorage.setItem('peeps', JSON.stringify(peeps))
+}
+
+function removePeepFromStorage(peep) {
+	storePeepsToStorage($.map(getPeepsFromStorage(), function(element) { return (element === peeps) ? null : element }))	
+}
+
+function addPeepToStorage(peep) {
+	var peeps = getPeepsFromStorage()
+	peeps.push(peep)
+	storePeepsToStorage(peeps)
+}
+
+function loadPeeps() {
+	var peeps = getPeepsFromStorage()
+
+	var peepsList = $('#peeps-list')
+	
+	peepsList.append('<li id="stlmobiledev"><a href="#tweets">stlmobiledev</a></li>')
+	
+	$.each(peeps, function(index, element) {
+		peepsList.append('<li id="' + element + '"><a href="#tweets">' + element + '</a></li>')
+	})
+	
+	peepsList.listview('refresh')
+}
 
 var CURRENT_HANDLE = "twitter";
 
@@ -60,7 +96,10 @@ $('#tweets').live('pageshow',function(event, ui){
 		})
 	}
 	else {
-		$('#tweets-list').append('<li>OFFLINE ... can\'t get tweets right now. Try again later.</li>')
+		var tweetList = $('#tweets-list')
+		tweetList.append('<li>OFFLINE ... can\'t get tweets right now. Try again later.</li>')
+		tweetList.listview('refresh')
+		
 		$.mobile.pageLoading(true)
 	}
 })
@@ -78,12 +117,17 @@ $('#addIt').live('click', function(event, ui) {
 	var peepsList = $('#peeps-list')
 	peepsList.append('<li id="' + handle + '"><a href="#tweets">' + handle + '</a></li>')
 	peepsList.listview('refresh')
+	
+	addPeepToStorage(handle)
+	
 	return true;
 })
 
 $('#removeHandle').live('click', function() {
 	$('li#' + CURRENT_HANDLE).remove()
 	$('#peeps-list').listview('refresh')
+	
+	removePeepFromStorage(CURRENT_HANDLE)
 	
 	return true
 })
