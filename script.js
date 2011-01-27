@@ -69,6 +69,10 @@ $('#tweets').live('pagehide', function(event, ui) {
 	$('#tweets-list').html(' ').listview('refresh')
 })
 
+$('#refresh').live('click', function() {
+	window.applicationCache.update();
+})
+
 $('#addIt').live('click', function(event, ui) {
 	var handle = $('#newHandle').val()
 	var peepsList = $('#peeps-list')
