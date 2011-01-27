@@ -1,10 +1,12 @@
 CACHE MANIFEST
-# tick
+# tock
 
 CACHE:
 favicon.ico
 script.js
 jquery.js
+jquery.mobile.css
+jquery.mobile.js
 
 NETWORK:
 *
