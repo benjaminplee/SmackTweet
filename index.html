@@ -1,58 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" manifest="cache.manifest">
+<html>
 <head>
-  <meta charset="utf-8" />
-  <title>SmackTweet</title>
-	<link rel="stylesheet" href="jquery.mobile.css" />
-	<link rel="apple-touch-icon-precomposed" href="favicon.ico"/>
-	<script src="jquery.js"></script>
-	<script src="jquery.mobile.js"></script>
-	<script src="script.js" type="text/javascript" charset="utf-8"></script>
+	
 </head>
 <body>
-	<div data-role="page" id="peeps">
-		<div data-role="header">
-			<h1>SmackTweet</h1>
-		</div>
-		<div data-role="content">
-		  <ul id="peeps-list" data-role="listview" data-inset="true" data-theme="g">
-				<li data-role="list-divider">Peeps</li>
-			</ul>
-			<a href="#add" data-role="button" data-icon="plus" id="refresh">Add Handle</a>
-		</div>
-		<div data-role="footer">
-			<h4>
-				<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a></h4>
-		</div>
-	</div>
-
-	<div data-role="page" id="tweets">
-		<div data-role="header">
-			<h1>SmackTweet</h1>
-		</div>
-		<div data-role="content">	
-		  <ul id="tweets-list" data-role="listview" data-inset="true" data-theme="g">
-			</ul>
-			<a href="#peeps" data-role="button" data-icon="delete" id="removeHandle">Remove Handle</a>
-		</div>
-	</div>
 	
-	<div data-role="page" id="add">
-		<div data-role="header" data-theme="d" data-position="inline"> 
-			<h1>Add Handle</h1>
-		</div> 
-		<div data-role="content" data-theme="c"> 
-			<h1>Add a new twitter handle?</h1> 
-			<p>
-				Adding a new twitter handle here will add it to the main page list and allow you to view that user's tweets.
-				If you don't want to add a handle now, click the back button.
-			</p>
-			<div data-role="fieldcontain">
-         <label for="newHandle">New Handle:</label>
-				<input type="text" name="newHandle" id="newHandle" />
-			</div>
-			<a href="#peeps" data-role="button" data-theme="b" id="addIt">Add It!</a>
-		</div>
-	</div>
-</body>
+</body>	
 </html>
