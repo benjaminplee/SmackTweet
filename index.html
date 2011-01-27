@@ -3,18 +3,62 @@
 <head>
   <meta charset="utf-8" />
   <title>SmackTweet</title>
-  <link rel="stylesheet" href="style.css" type="text/css" media="screen" title="no title" charset="utf-8">
-	<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+  <!-- <link rel="stylesheet" href="style.css" type="text/css" media="screen" title="no title" charset="utf-8"> -->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.css" />
+	<script src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.js"></script>
 	<script src="script.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
-  <img src="logo.png" class="logo" />
-  <ul>
-		<li><a href="#" class="showLatestTweet">leebenjp</a></li>
-		<li><a href="#" class="showLatestTweet">natesbrain</a></li>
-	</ul>
-	<div class="license">
-	<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">SmackTweet</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/benjaminplee/SmackTweet" property="cc:attributionName" rel="cc:attributionURL">BenjaminPLee</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/benjaminplee/SmackTweet" rel="dct:source">github.com</a>.
+	<div data-role="page" id="peeps">
+		<div data-role="header">
+			<h1>SmackTweet</h1>
+		</div>
+		<div data-role="content">
+		  <ul id="peeps-list" data-role="listview" data-inset="true" data-theme="g">
+				<li data-role="list-divider">Peeps</li>
+				<li id="leebenjp"><a href="#tweets">leebenjp</a></li>
+				<li id="heathborder"><a href="#tweets">heathborders</a></li>
+				<li id="stlmobiledev"><a href="#tweets">stlmobiledev</a></li>
+				<li id="codemash"><a href="#tweets">codemash</a></li>
+			</ul>
+			<a href="#add" data-role="button" data-icon="plus">Add Handle</a>
+		</div>
+		<div data-role="footer">
+			<h4><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a></h4>
+		</div>
+	</div>
+
+	<div data-role="page" id="tweets">
+		<div data-role="header">
+			<h1>SmackTweet</h1>
+		</div>
+		<div data-role="content">	
+		  <ul id="tweets-list" data-role="listview" data-inset="true" data-theme="g">
+			</ul>
+			<a href="#peeps" data-role="button" data-icon="delete" id="removeHandle">Remove Handle</a>
+		</div>
+		<div data-role="footer">
+			<h4><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">SmackTweet</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/benjaminplee/SmackTweet" property="cc:attributionName" rel="cc:attributionURL">BenjaminPLee</a> is licensed under a <br /><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/benjaminplee/SmackTweet" rel="dct:source">github.com</a>.</h4>
+		</div>
+	</div>
+	
+	<div data-role="page" id="add">
+		<div data-role="header" data-theme="d" data-position="inline"> 
+			<h1>Add Handle</h1>
+		</div> 
+		<div data-role="content" data-theme="c"> 
+			<h1>Add a new twitter handle?</h1> 
+			<p>
+				Adding a new twitter handle here will add it to the main page list and allow you to view that user's tweets.
+				If you don't want to add a handle now, click the back button.
+			</p>
+			<div data-role="fieldcontain">
+         <label for="newHandle">New Handle:</label>
+				<input type="text" name="newHandle" id="newHandle" />
+			</div>
+			<a href="#peeps" data-role="button" data-theme="b" id="addIt">Add It!</a>
+		</div>
 	</div>
 </body>
 </html>
