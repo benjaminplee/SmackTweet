@@ -20,7 +20,7 @@ function checkIfOnline() {
 }
 
 function getPeepsFromStorage() {
-	return JSON.parse(window.localStorage.getItem('peeps')) || []
+	return JSON.parse(window.localStorage.getItem('peeps') || "[]")
 }
 
 function storePeepsToStorage(peeps) {
