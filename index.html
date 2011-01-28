@@ -1,9 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
-	
+	<title>SmackTweet</title>
+	<link rel="stylesheet" href="jquery.mobile.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="jquery.mobile.js" type="text/javascript" charset="utf-8"></script>
+	<script src="smacktweet.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
+	<div id="peeps" data-role="page">
+		<div data-role="header"><h4>SmackTweet</h4></div>
+		<div data-role="content">
+			
+			<ul data-role="listview" id="peeps-list" data-inset="true">
+				<!-- <li><a href="#tweets">stlmobiledev</a></li>
+				<li><a href="#tweets">leebenjp</a></li>
+				<li><a href="#tweets">heathborder</a></li> -->
+			</ul>
+			
+			<a href="#addPeep" data-role="button" data-icon="plus">Add a peep</a>
+			
+		</div>
+		<div data-role="footer"><h4>Ben Rulez</h4></div>
+	</div>
+	
+	<div id="tweets" data-role="page">
+		<div data-role="header"><h4>SmackTweet</h4></div>
+		<div data-role="content">
+			
+			<ul data-role="listview" id="tweets-list" data-inset="true">
+				<li>tweet!</li>
+			</ul>
+			
+			<a href="#peeps" data-role="button" data-icon="minus" id="removePeep">Remove Peep</a>
+			
+		</div>
+	</div>
+	
+	<div id="addPeep" data-role="page">
+		<div data-role="header"><h4>SmackTweet</h4></div>
+		<div data-role="content">
+			
+			<div data-role="fieldcontain">
+				<label for="newPeep">
+					Handle:
+				</label>
+				<input type="text" id="newPeep" />
+			</div>
+			
+			<a href="#peeps" id="addIt" data-role="button">Add Peep</a>
+			
+		</div>
+	</div>
 	
 </body>	
 </html>
