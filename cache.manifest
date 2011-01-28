@@ -1,0 +1,17 @@
+CACHE MANIFEST
+
+CACHE:
+favicon.ico
+jquery.js
+jquery.mobile.css
+jquery.mobile.js
+smacktweet.js
+images/ajax-loader.png
+images/icon-search-black.png
+images/icons-18-black.png
+images/icons-18-white.png
+images/icons-36-black.png
+images/icons-36-white.png
+
+NETWORK:
+*
