@@ -47,6 +47,20 @@ $('#peeps-list a').live('click', function() {
 	CURRENT_PEEP = name	
 })
 
+$('#removePeep').live('click', function() {
+    var peep = $("#peeps-list li:contains('" + CURRENT_PEEP + "')")
+    peep.remove()
+    $('#peeps-list').listview('refresh')
+    
+    var config = JSON.parse(localStorage.getItem('peeps'))
+    config.peeps = $.map(config.peeps, function(element) {
+        return element === CURRENT_PEEP ? null : element;
+    })
+    localStorage.setItem('peeps', JSON.stringify(config))
+    
+    return true
+})
+
 $('#addIt').live('click', function() {
 	var peepsList = $('#peeps-list')
 	
