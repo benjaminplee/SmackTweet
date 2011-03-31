@@ -1,11 +1,26 @@
+$(function() {
+	var config = JSON.parse(localStorage.getItem('peeps')) || { peeps:['leebenjp'] }
+	
+	var peepsList = $('#peeps-list')
+	
+	for(var i = 0; i < config.peeps.length; i++) {
+		peepsList.append('<li><a href="#tweets">' + config.peeps[i] + '</a></li>')
+	}
+	
+	localStorage.setItem('peeps', JSON.stringify(config))
+	
+	peepsList.listview('refresh')
+})
+
 $('#peeps-list a').live('click', function() {
 	$.mobile.loadingMessage = "Loading Tweets"
 	$.mobile.pageLoading()
 	
+	var name = $(this).html()
 	var tweetsList = $('#tweets-list')
+
 	tweetsList.html('')
 	
-	var name = $(this).html()
 	$.ajax({
 		url: 'http://search.twitter.com/search.json',
 		cache: false,
@@ -29,8 +44,7 @@ $('#peeps-list a').live('click', function() {
 		}
 	})
 	
-	CURRENT_PEEP = name
-	
+	CURRENT_PEEP = name	
 })
 
 $('#addIt').live('click', function() {
@@ -46,33 +60,3 @@ $('#addIt').live('click', function() {
 	
 	return true
 })
-
-$('#removePeep').live('click', function() {
-	var peep = $("#peeps-list li:contains('" + CURRENT_PEEP + "')")
-	peep.remove()
-	$('#peeps-list').listview('refresh')
-	
-	var config = JSON.parse(localStorage.getItem('peeps'))
-	config.peeps = $.map(config.peeps, function(element) {
-		return element === CURRENT_PEEP ? null : element;
-	})
-	localStorage.setItem('peeps', JSON.stringify(config))
-	
-	return true
-})
-
-$(function() {
-	var config = JSON.parse(localStorage.getItem('peeps')) || { peeps:['stlmobiledev'] }
-	
-	var peepsList = $('#peeps-list')
-	for(var i = 0; i < config.peeps.length; i++) {
-		peepsList.append('<li><a href="#tweets">' + config.peeps[i] + '</a></li>')
-	}
-	
-	localStorage.setItem('peeps', JSON.stringify(config))
-	
-	peepsList.listview('refresh')
-})
-
-
-
